@@ -1,35 +1,19 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import type { CSSProperties } from 'react'
 import { LocalLink, type Navigate } from '../App'
 import { AromaWheel, BrandMark, Icon } from '../components/Visuals'
 import { shopProducts } from '../content/products'
+import { useShop } from '../shop/useShop'
 import site from '../content/site.json'
 
 type PageProps = { navigate: Navigate }
 
 export function CataloguePage({ navigate }: PageProps) {
   const [query, setQuery] = useState('')
-  const [cart, setCart] = useState<Record<string, number>>({})
-  const [cartOpen, setCartOpen] = useState(false)
+  const { addItem, openCart } = useShop()
   const search = query.trim().toLocaleLowerCase('th')
   const visibleProducts = shopProducts.filter((product) => `${product.name} ${product.sku} ${product.subtitle}`.toLocaleLowerCase('th').includes(search))
-  const cartItems = useMemo(() => shopProducts.filter((product) => cart[product.sku]), [cart])
-  const cartCount = cartItems.reduce((sum, product) => sum + (cart[product.sku] ?? 0), 0)
-  const cartTotal = cartItems.reduce((sum, product) => sum + product.priceTHB * (cart[product.sku] ?? 0), 0)
   const formatPrice = (price: number) => `฿${new Intl.NumberFormat('th-TH').format(price)}`
-  function addToCart(sku: string) {
-    setCart((current) => ({ ...current, [sku]: (current[sku] ?? 0) + 1 }))
-    setCartOpen(true)
-  }
-  function updateQuantity(sku: string, delta: number) {
-    setCart((current) => {
-      const next = Math.max(0, (current[sku] ?? 0) + delta)
-      const copy = { ...current }
-      if (next === 0) delete copy[sku]
-      else copy[sku] = next
-      return copy
-    })
-  }
 
   return (
     <section className="catalogue-page">
@@ -51,22 +35,13 @@ export function CataloguePage({ navigate }: PageProps) {
       {visibleProducts.length > 0 ? <div className="product-grid">
         {visibleProducts.map((product) => <article className="product-card" key={product.sku} style={{ '--product-accent': product.accent, '--product-glow': product.glow } as CSSProperties}>
           <div className="product-visual"><img src="/images/celestial-sanctuary.webp" alt="" loading="lazy" /><div className="product-orbit" aria-hidden="true"><span>{product.sku.replace('NO-', '')}</span></div><div className="product-bottle" aria-hidden="true"><i /><b /></div><span className="product-collection">{product.collection}</span></div>
-          <div className="product-card-copy"><div className="product-meta"><span>{product.sku}</span><span>{product.size}</span></div><h2>{product.name}</h2><p>{product.subtitle}</p><div className="product-buy"><strong>{formatPrice(product.priceTHB)}</strong><button className="button product-add" type="button" onClick={() => addToCart(product.sku)}><Icon name="bag" /> เพิ่มลงตะกร้า</button></div><small>ราคาเดโมสำหรับต้นแบบ</small></div>
+          <div className="product-card-copy"><div className="product-meta"><span>{product.sku}</span><span>{product.size}</span></div><h2>{product.name}</h2><p>{product.subtitle}</p><div className="product-buy"><strong>{formatPrice(product.priceTHB)}</strong><button className="button product-add" type="button" onClick={() => addItem(product.sku)}><Icon name="bag" /> เพิ่มลงตะกร้า</button></div><small>ราคาเดโมสำหรับต้นแบบ</small></div>
         </article>)}
       </div> : <div className="inline-empty" role="status"><Icon name="leaf" /><h2>ยังไม่พบกลิ่นนี้</h2><p>ลองใช้ชื่อดอกไม้หรือหมายเลขสินค้าอื่น</p><button className="button secondary" type="button" onClick={() => setQuery('')}>ดูทุกกลิ่น</button></div>}
 
-      <div className="shop-footer-note"><BrandMark /><div><h2>สร้างคอลเลกชันของคุณเอง</h2><p>เลือกหลายกลิ่นแล้วปรับจำนวนในตะกร้าได้ทันที ระบบชำระเงินจริงจะเชื่อมต่อหลังเจ้าของแบรนด์ยืนยันช่องทาง</p></div><button className="button primary" type="button" onClick={() => setCartOpen(true)}><Icon name="bag" /> เปิดตะกร้า</button></div>
+      <div className="shop-footer-note"><BrandMark /><div><h2>สร้างคอลเลกชันของคุณเอง</h2><p>เลือกหลายกลิ่นแล้วปรับจำนวนในตะกร้าได้ทันที ระบบชำระเงินจริงจะเชื่อมต่อหลังเจ้าของแบรนด์ยืนยันช่องทาง</p></div><button className="button primary" type="button" onClick={openCart}><Icon name="bag" /> เปิดตะกร้า</button></div>
       <p className="reading-note">{site.disclaimer}</p>
-
-      <button className={`cart-launcher${cartOpen ? ' is-hidden' : ''}`} type="button" onClick={() => setCartOpen(true)} aria-label={`เปิดตะกร้า มี ${cartCount} รายการ`}><Icon name="bag" /><span>{cartCount}</span></button>
-      <button className={`cart-scrim${cartOpen ? ' is-visible' : ''}`} type="button" aria-label="ปิดตะกร้า" onClick={() => setCartOpen(false)} />
-      <aside className={`cart-drawer${cartOpen ? ' is-open' : ''}`} aria-label="ตะกร้าของคุณ" aria-hidden={!cartOpen}>
-        <div className="cart-heading"><div><p className="eyebrow">YOUR COLLECTION</p><h2>ตะกร้าของคุณ</h2></div><button className="icon-button" type="button" aria-label="ปิดตะกร้า" onClick={() => setCartOpen(false)}><Icon name="close" /></button></div>
-        {cartItems.length === 0 ? <div className="cart-empty"><BrandMark /><h3>ตะกร้ายังว่างอยู่</h3><p>เลือกกลิ่นที่สะท้อนช่วงเวลานี้ของคุณ แล้วกลับมาปรับชุดได้ทุกเมื่อ</p></div> : <>
-          <div className="cart-items">{cartItems.map((product) => <div className="cart-item" key={product.sku}><div className="cart-item-swatch" style={{ '--product-accent': product.accent } as CSSProperties}>{product.sku.replace('NO-', '')}</div><div className="cart-item-copy"><strong>{product.name}</strong><span>{formatPrice(product.priceTHB)} · {product.size}</span><div className="quantity-control"><button type="button" aria-label={`ลดจำนวน ${product.name}`} onClick={() => updateQuantity(product.sku, -1)}><Icon name="minus" /></button><span>{cart[product.sku]}</span><button type="button" aria-label={`เพิ่มจำนวน ${product.name}`} onClick={() => updateQuantity(product.sku, 1)}><Icon name="plus" /></button></div></div></div>)}</div>
-          <div className="cart-summary"><span>ยอดรวมต้นแบบ</span><strong>{formatPrice(cartTotal)}</strong></div><button className="button primary cart-checkout" type="button" disabled>ไปต่อที่ชำระเงิน <Icon name="arrow" /></button><p className="cart-note">{site.purchasePending}</p>
-        </>}
-      </aside>
+      
     </section>
   )
 }

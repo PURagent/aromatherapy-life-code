@@ -51,6 +51,9 @@ input, select { background: #100b18; border-color: #75637d; color: #f1e5fb; bord
 /* Shop layer — an editorial catalogue with a quiet, tactile cart drawer. */
 .catalogue-page { position: relative; padding-bottom: 30px; }
 .page-heading .eyebrow, .eyebrow { margin: 0 0 8px; color: #a895bb; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
+.nav-cart { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; color: #e6cb95; background: transparent; }
+.nav-cart:hover { color: #fff0c9; background: #261731; }
+.nav-cart .icon { width: 20px; height: 20px; }.nav-cart span { position: absolute; top: 1px; right: 0; display: grid; place-items: center; min-width: 18px; height: 18px; padding-inline: 3px; border-radius: 50%; color: #f8ebd0; background: #5b3458; font-size: 9px; }
 .page-heading h1 { max-width: 15ch; line-height: 1.12; text-wrap: balance; }
 .page-heading p:not(.eyebrow) { max-width: 47ch; }
 .shop-notice { display: flex; align-items: flex-start; gap: 12px; margin-top: 30px; padding: 15px 18px; border-block: 1px solid #bc965d52; background: linear-gradient(90deg, #24172d99, transparent); color: #e9d6af; font-size: 12px; }

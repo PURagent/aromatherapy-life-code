@@ -10,6 +10,8 @@ import { ResultPage } from './routes/ResultPage'
 import { CataloguePage, NumberPage, PrivacyPage } from './routes/ContentPages'
 import { Icon, BrandMark } from './components/Visuals'
 import site from './content/site.json'
+import { useShop } from './shop/useShop'
+import { ShopDrawer } from './shop/ShopDrawer'
 
 export type Navigate = (path: string) => void
 export type SessionResult = { input: LifeCodeInput; result: LifeCodeResult }
@@ -31,6 +33,7 @@ export function LocalLink({ to, navigate, children, className, current }: {
 }
 
 function App() {
+  const { count, openCart } = useShop()
   const [route, setRoute] = useState(appPath(window.location.pathname))
   const [draft, setDraft] = useState<FormDraft>(emptyDraft)
   const [session, setSession] = useState<SessionResult | null>(null)
@@ -83,7 +86,7 @@ function App() {
       <a className="skip-link" href="#main">ข้ามไปเนื้อหา</a>
       <header className="site-header">
         <LocalLink to="/" navigate={navigate} className="brand"><BrandMark /><span>Life Code<small>by {site.practitioner}</small></span></LocalLink>
-        <nav aria-label="เมนูหลัก"><LocalLink to="/#scent-story" navigate={navigate} className="nav-world">The universe of scent</LocalLink><LocalLink to="/scents" navigate={navigate} current={route === '/scents'}>สำรวจกลิ่น</LocalLink><LocalLink to="/#begin" navigate={navigate} className="nav-start">เริ่มต้น <Icon name="arrow" /></LocalLink></nav>
+        <nav aria-label="เมนูหลัก"><LocalLink to="/#scent-story" navigate={navigate} className="nav-world">The universe of scent</LocalLink><LocalLink to="/scents" navigate={navigate} current={route === '/scents'}>สำรวจกลิ่น</LocalLink><LocalLink to="/#begin" navigate={navigate} className="nav-start">เริ่มต้น <Icon name="arrow" /></LocalLink><button type="button" className="nav-cart" onClick={openCart} aria-label={`เปิดตะกร้า มี ${count} รายการ`}><Icon name="bag" /><span>{count}</span></button></nav>
       </header>
       <main id="main" ref={main} tabIndex={-1}>
         {route === '/' ? <HomePage navigate={navigate}><FormPage draft={draft} setDraft={setDraft} onSubmit={submit} onReset={reset} notice={notice} navigate={navigate} /></HomePage>
@@ -94,6 +97,7 @@ function App() {
           : <section className="empty-page"><h1>ไม่พบหน้านี้</h1><p>กลับไปเริ่มต้น หรือเลือกสำรวจกลิ่นจากเมนูด้านบนได้เลย</p><LocalLink to="/" navigate={navigate} className="button primary">กลับหน้าเริ่มต้น <Icon name="arrow" /></LocalLink></section>}
       </main>
       <footer className="site-footer"><div className="footer-signature">Life Code<span>Every soul, a universe.</span></div><p>{site.disclaimer}</p><div><span>Aromatherapy Life Code <span aria-hidden="true">·</span> {site.practitioner}</span><LocalLink to="/privacy" navigate={navigate}>ความเป็นส่วนตัว</LocalLink></div></footer>
+      <ShopDrawer />
     </div>
   )
 }
