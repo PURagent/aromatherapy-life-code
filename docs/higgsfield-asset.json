@@ -1,0 +1,11 @@
+{
+  "provider": "Higgsfield",
+  "jobId": "abde6e06-9e17-4151-976f-5dfb4c84d2f0",
+  "requestedModel": "nano_banana_pro",
+  "reportedModel": "nano_banana_2",
+  "prompt": "Create one premium editorial still-life image for an experimental aromatherapy website. Purely an abstract concept image, no products or medical symbolism. Close-up sculptural translucent amber resin ribbon curling like an unfurling flower petal around a suspended clear golden oil droplet, one delicate ivory petal resting on honed limestone. Warm parchment background #eee9dd with soft daylight and long fine shadows, tactile matte limestone contrasted against the molten honey-gold translucent sculpture, realistic refracted caustic highlights, art-directed luxury fragrance campaign, precise macro photography, restrained sculptural composition concentrated in the center-right, plentiful clean empty space at left, 50mm studio lens, physically plausible materials, subtle olive-grey shadows, elevated art museum installation feeling. Absolutely no words, labels, typography, logos, bottles, people, chakra diagrams, numbers or charts.",
+  "source": "https://d8j0ntlcm91z4.cloudfront.net/user_3HiWxg0eCNbeN8YLlVWW15EwNEY/hf_20260909_005216_abde6e06-9e17-4151-976f-5dfb4c84d2f0.png",
+  "optimizedSource": "https://d8j0ntlcm91z4.cloudfront.net/user_3HiWxg0eCNbeN8YLlVWW15EwNEY/hf_20260909_005216_abde6e06-9e17-4151-976f-5dfb4c84d2f0_min.webp",
+  "usage": "Abstract editorial artwork, not a product photo or health illustration",
+  "local": "public/images/amber-study.webp"
+}

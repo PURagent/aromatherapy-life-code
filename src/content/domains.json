@@ -1,0 +1,66 @@
+[
+  {
+    "id": "mental",
+    "labelEn": "Mental & Stress",
+    "labelTh": "จิตใจและความเครียด",
+    "scentFamilyTh": "กลิ่นพลังหยิน",
+    "numbers": [
+      1,
+      7,
+      9
+    ],
+    "colorToken": "--color-domain-mental",
+    "sourceNote": "โปสเตอร์ image1 (มุมบนซ้าย)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "id": "vision",
+    "labelEn": "Vision & Clarity & Throat",
+    "labelTh": "สายตา ความแจ่มชัด และลำคอ",
+    "scentFamilyTh": "กลิ่นสัมผัสคอจมูก",
+    "numbers": [
+      1,
+      2,
+      6
+    ],
+    "colorToken": "--color-domain-vision",
+    "sourceNote": "โปสเตอร์ image1 (มุมบนขวา)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "id": "respiratory",
+    "labelEn": "Respiratory & Clarity",
+    "labelTh": "ระบบหายใจและความโปร่งโล่ง",
+    "scentFamilyTh": "กลิ่นพลังหยาง",
+    "numbers": [
+      3,
+      5,
+      9
+    ],
+    "colorToken": "--color-domain-respiratory",
+    "sourceNote": "โปสเตอร์ image1 (มุมล่างซ้าย) — ตัวเลขในภาพไม่คมชัด ต้องให้เจ้าของงานยืนยัน (Q9)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "id": "cardio",
+    "labelEn": "Cardiovascular & Heart",
+    "labelTh": "หัวใจและหลอดเลือด",
+    "scentFamilyTh": "กลิ่นใจสงบ",
+    "numbers": [
+      4,
+      5,
+      8
+    ],
+    "colorToken": "--color-domain-cardio",
+    "sourceNote": "โปสเตอร์ image1 (มุมล่างขวา)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  }
+]

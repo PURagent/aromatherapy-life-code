@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Credentials and local design caches
+.env
+.env.*
+!.env.example
+.impeccable/
+# Generated Figma bundles; retain build scripts and sources
+figma-plugin/code.js
+figma-plugin/fantasy-scripter.js

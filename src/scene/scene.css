@@ -1,0 +1,9 @@
+.amber-scene { width: 100%; height: 100%; min-height: 300px; position: relative; isolation: isolate; }
+.amber-scene__canvas, .amber-scene__fallback { width: 100%; height: 100%; display: block; position: absolute; inset: 0; }
+.amber-scene__canvas { opacity: 0; transition: opacity 700ms ease; touch-action: pan-y; cursor: grab; }
+.amber-scene__fallback { opacity: .92; object-fit: contain; object-position: 50% 50%; pointer-events: none; mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%); transition: opacity 700ms ease; }
+.amber-scene[data-scene-visible="true"] .amber-scene__canvas { opacity: 1; }
+.amber-scene[data-scene-visible="true"] .amber-scene__fallback { opacity: 0; }
+.amber-scene[data-dragging="true"] .amber-scene__canvas { cursor: grabbing; }
+.amber-scene[data-scene-state="paused"] .amber-scene__canvas, .amber-scene[data-scene-state="reduced-motion"] .amber-scene__canvas { cursor: default; }
+@media (prefers-reduced-motion: reduce) { .amber-scene__canvas, .amber-scene__fallback { transition: none; } }

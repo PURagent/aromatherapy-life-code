@@ -1,0 +1,67 @@
+{
+  "task": "Celestial Sanctuary — fantasy redesign artwork",
+  "date": "2026-09-09",
+  "provider": "Higgsfield",
+  "requestedModel": "nano_banana_pro",
+  "jobId": "f863ef61-bc37-4b74-b7da-49c3b1bc117b",
+  "status": "completed",
+  "request": {
+    "aspectRatio": "16:9",
+    "resolution": "2k",
+    "count": 1,
+    "prompt": "Create one lavish cinematic 16:9 website artwork inspired by the supplied owner's Aromatherapy Life Code poster reference. Preserve the source visual DNA: deep aubergine-black and royal-violet shadows, elegant antique gold, luminous jewel rainbow circular mandala, carved gold tray, three faceted essential-oil bottles. Transform it into a magnificent celestial Thai-inspired fantasy perfumery sanctuary. Three exquisite UNLABELLED jewel-glass perfume/oil bottles, one pale amethyst crystal, one dark violet crystal, one pale emerald crystal, with fine gold caps sit on an intricate gold and obsidian circular altar in the lower-center/right. A grand floating circular sacred-geometric mandala halo, delicate concentric engraved gold rings and interlaced geometric filigree, glows with seven subtle jewel hues behind the bottles. The halo is an ornamental artwork, with NO numerals, NO words, NO organ symbols, NO diagrams or clinical claims. Wisps of violet mist coil naturally around the bottles, fine distant stars and glimmering gold dust, volumetric rim light, near-black plum cosmic depth, ornamental Thai architectural details very subtle in shadow. Hyper-detailed physically convincing 3D CGI, realistic cut-glass caustics and gold reflections, luxurious crafted art direction, serene but spectacular monumental scale. Wide editorial composition, luminous hero grouping at center-right with clean dark atmospheric negative space at left and upper left for separately rendered website text. Restrained rainbow accents on halo, not rainbow background. No people, no phone, no interface, no text, no letters, no numbers, no logos, no watermark, no product labels, no white or beige minimalism. Frame whole halo and whole bottle bases with generous breathing room."
+  },
+  "sourceReference": {
+    "localPath": "_plan/assets/image1.jpg",
+    "mediaId": "05231d29-728a-4505-8573-ea9b796c7cf8",
+    "contentType": "image/jpeg",
+    "bytes": 155769,
+    "observedSourceImages": [
+      "_plan/assets/image1.jpg",
+      "_plan/assets/image2.jpg",
+      "_plan/assets/image3.jpg",
+      "_plan/assets/image4.jpg"
+    ],
+    "influence": "Deep plum-black, antique gold, luminous rainbow geometric halo, faceted aroma vessels on gold tray. Source text, medical claims, phones and numerical diagrams intentionally not reproduced."
+  },
+  "artworkPurpose": "Concept artwork, not a photograph of actual products. Decorations do not represent numerical measurements.",
+  "publication": "Local prototype only",
+  "reportedModel": "nano_banana_2",
+  "providerAdjustment": "Requested nano_banana_pro; the job status reports nano_banana_2. The returned job record is the authority for the effective model.",
+  "completedResult": {
+    "id": "f863ef61-bc37-4b74-b7da-49c3b1bc117b",
+    "model": "nano_banana_2",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3HiWxg0eCNbeN8YLlVWW15EwNEY/hf_20260909_032610_f863ef61-bc37-4b74-b7da-49c3b1bc117b.png",
+    "providerMinUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3HiWxg0eCNbeN8YLlVWW15EwNEY/hf_20260909_032610_f863ef61-bc37-4b74-b7da-49c3b1bc117b_min.webp",
+    "width": 2752,
+    "height": 1536,
+    "createdAt": 1788924370.936901
+  },
+  "optimizedAsset": {
+    "localPath": "app-3d/public/images/celestial-sanctuary.webp",
+    "uploadedMediaId": "d938ad38-4b46-41b6-85bb-8154b9dbcf7d",
+    "cloudUrl": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HiWxg0eCNbeN8YLlVWW15EwNEY/d938ad38-4b46-41b6-85bb-8154b9dbcf7d.webp",
+    "width": 2200,
+    "height": 1228,
+    "format": "webp",
+    "quality": 88,
+    "method": 6,
+    "transform": "Pillow LANCZOS thumbnail max(2200,1237), aspect ratio preserved, RGB WebP; no compositing or creative edits."
+  },
+  "files": [
+    {
+      "name": "celestial-sanctuary.webp",
+      "bytes": 311498,
+      "sha256": "EAED3F698506512EA464C578A564446518DE40ED63E954B55C6F94CF46FCB19D"
+    },
+    {
+      "name": "celestial-sanctuary-original.png",
+      "bytes": 6974571,
+      "sha256": "CDD61A235721B2067C10F4DD0180E8AEA0EA98D67AAC4CAB25AE29B6119DA8CE"
+    }
+  ],
+  "visualVerification": {
+    "inspected": true,
+    "observations": "Dark plum sanctuary with ornate golden halo, violet mist, stars, three unlabelled amethyst/deep-violet/pale-emerald faceted glass bottles; left side kept dark for UI. No people, phone, text, health claims, numerals or organ icons observed."
+  }
+}

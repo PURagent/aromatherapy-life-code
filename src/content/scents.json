@@ -1,0 +1,192 @@
+[
+  {
+    "sku": "NO-1",
+    "kind": "number",
+    "botanicalNameTh": "ซีทรัส สดชื่น",
+    "meaningNameTh": "กลิ่นพลังหยิน",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-2",
+    "kind": "number",
+    "botanicalNameTh": "ลาเวนเดอร์",
+    "meaningNameTh": null,
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อเชิงความหมายถูกเว้นว่างไว้: ข้อความบรีฟระบุ 'กลิ่นพลังหยาง' แต่โปสเตอร์จัดเลข 2 อยู่กลุ่ม 'กลิ่นสัมผัสคอจมูก' (Q5)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-3",
+    "kind": "number",
+    "botanicalNameTh": "ดอกปีบ",
+    "meaningNameTh": null,
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อเชิงความหมายถูกเว้นว่างไว้: ข้อความบรีฟระบุ 'กลิ่นสัมผัสคอจมูก' แต่โปสเตอร์จัดเลข 3 อยู่กลุ่ม 'กลิ่นพลังหยาง' (Q5)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-4",
+    "kind": "number",
+    "botanicalNameTh": "ดอกไม้หอม",
+    "meaningNameTh": "กลิ่นสร้างองค์กร",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-5",
+    "kind": "number",
+    "botanicalNameTh": "แท่งไม้และกฤษณา",
+    "meaningNameTh": "กลิ่นใจสงบ",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-6",
+    "kind": "number",
+    "botanicalNameTh": "กลิ่นดอกไม้สีขาว",
+    "meaningNameTh": "กลิ่นเสียสละ",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-7",
+    "kind": "number",
+    "botanicalNameTh": "มะลิป่า",
+    "meaningNameTh": "กลิ่นรู้แท้",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-8",
+    "kind": "number",
+    "botanicalNameTh": "ดอกแก้ว",
+    "meaningNameTh": "กลิ่นนักวางแผน",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "NO-9",
+    "kind": "number",
+    "botanicalNameTh": "ดอกบัว",
+    "meaningNameTh": "กลิ่นสัจจะธรรม",
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ชื่อพฤกษศาสตร์จาก image2/image3; ชื่อเชิงความหมายจากข้อความในบรีฟ",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "ข้อมูลถอดจากบรีฟหรือโปสเตอร์ ยังไม่มีเอกสารยืนยันจากเจ้าของแบรนด์ ห้ามใช้เป็นผลเฉพาะบุคคลหรือคำแนะนำด้านสุขภาพ"
+  },
+  {
+    "sku": "SP-SUNRISE",
+    "kind": "special",
+    "botanicalNameTh": "Sunrise Wake Up",
+    "meaningNameTh": null,
+    "chakraIds": [
+      6,
+      7
+    ],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "image2 และ image3 ตรงกัน (Chakras 6, 7)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "กลิ่นพิเศษและการผูกจักระทั้งหมดรอเจ้าของแบรนด์ยืนยัน Q8 แม้บางภาพตรงกันก็ยังไม่ถือว่าได้รับอนุมัติ"
+  },
+  {
+    "sku": "SP-DEEPSLEEP",
+    "kind": "special",
+    "botanicalNameTh": "Deep Sleep from Heaven",
+    "meaningNameTh": null,
+    "chakraIds": [
+      3,
+      4
+    ],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "image2 และ image3 ตรงกัน (Chakras 3, 4)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "กลิ่นพิเศษและการผูกจักระทั้งหมดรอเจ้าของแบรนด์ยืนยัน Q8 แม้บางภาพตรงกันก็ยังไม่ถือว่าได้รับอนุมัติ"
+  },
+  {
+    "sku": "SP-AGARWOOD-OIL",
+    "kind": "special",
+    "botanicalNameTh": "Agarwood Massage Oil",
+    "meaningNameTh": null,
+    "chakraIds": [
+      5
+    ],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "image2 และ image3 ตรงกัน (Chakra 5)",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "กลิ่นพิเศษและการผูกจักระทั้งหมดรอเจ้าของแบรนด์ยืนยัน Q8 แม้บางภาพตรงกันก็ยังไม่ถือว่าได้รับอนุมัติ"
+  },
+  {
+    "sku": "SP-SEEKING",
+    "kind": "special",
+    "botanicalNameTh": "Seeking Blessings",
+    "meaningNameTh": null,
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ขัดแย้ง: image2 ระบุ Chakras 1, 2 แต่ image3 ระบุ Chakras 2, 4 (Q8) — ซ่อนไว้จนกว่าจะยืนยัน",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "กลิ่นพิเศษและการผูกจักระทั้งหมดรอเจ้าของแบรนด์ยืนยัน Q8 แม้บางภาพตรงกันก็ยังไม่ถือว่าได้รับอนุมัติ"
+  },
+  {
+    "sku": "SP-AGARWOOD-MASSAGE",
+    "kind": "special",
+    "botanicalNameTh": "Agarwood Massage",
+    "meaningNameTh": null,
+    "chakraIds": [],
+    "priceTHB": null,
+    "buyUrl": null,
+    "sourceNote": "ปรากฏเฉพาะใน image3 (Chakras 1, 5) ไม่มีใน image2 (Q8) — ซ่อนไว้จนกว่าจะยืนยัน",
+    "status": "pending",
+    "ownerConfirmation": null,
+    "reviewNote": "กลิ่นพิเศษและการผูกจักระทั้งหมดรอเจ้าของแบรนด์ยืนยัน Q8 แม้บางภาพตรงกันก็ยังไม่ถือว่าได้รับอนุมัติ"
+  }
+]

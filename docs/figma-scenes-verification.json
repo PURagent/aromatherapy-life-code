@@ -1,0 +1,35 @@
+{
+  "pageId": "18:8",
+  "updated": [
+    {
+      "key": "desktop",
+      "id": "18:55",
+      "name": "Live Three.js scene — desktop still",
+      "imageHash": "59937ae4e6ba0d43fb2a3308214d4f573a13867d",
+      "frame": {
+        "width": 811,
+        "height": 658
+      },
+      "image": {
+        "width": 608,
+        "height": 493
+      },
+      "scaleMode": "FILL"
+    },
+    {
+      "key": "mobile",
+      "id": "18:216",
+      "name": "Live Three.js scene — mobile still",
+      "imageHash": "be1ed7277993b4c582ad976171bdbc8f1615edd8",
+      "frame": {
+        "width": 390,
+        "height": 350
+      },
+      "image": {
+        "width": 312,
+        "height": 280
+      },
+      "scaleMode": "FILL"
+    }
+  ]
+}

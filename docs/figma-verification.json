@@ -1,0 +1,200 @@
+{
+  "page": {
+    "id": "18:8",
+    "name": "02 · Native web design"
+  },
+  "frames": [
+    {
+      "id": "18:16",
+      "name": "Native Desktop · 1440",
+      "width": 1440,
+      "height": 3492,
+      "sections": [
+        {
+          "id": "18:17",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 99
+        },
+        {
+          "id": "18:38",
+          "name": "Hero",
+          "x": 0,
+          "y": 99,
+          "width": 1440,
+          "height": 710
+        },
+        {
+          "id": "18:68",
+          "name": "Scent story",
+          "x": 0,
+          "y": 809,
+          "width": 1440,
+          "height": 1011
+        },
+        {
+          "id": "18:81",
+          "name": "Begin / Pending formula form",
+          "x": 0,
+          "y": 1820,
+          "width": 1440,
+          "height": 926
+        },
+        {
+          "id": "18:135",
+          "name": "Discovery and number reference",
+          "x": 0,
+          "y": 2746,
+          "width": 1440,
+          "height": 376
+        },
+        {
+          "id": "18:170",
+          "name": "Footer",
+          "x": 0,
+          "y": 3122,
+          "width": 1440,
+          "height": 370
+        }
+      ],
+      "counts": {
+        "nodes": 160,
+        "text": 67,
+        "instances": 4,
+        "vectors": 20,
+        "images": 2,
+        "autoLayout": 44
+      },
+      "fontFamilies": [
+        "Cormorant Garamond",
+        "Noto Sans Thai"
+      ],
+      "shortHorizontalRows": [],
+      "textOverflow": [],
+      "images": [
+        {
+          "id": "18:55",
+          "name": "Higgsfield concept image — static Figma fallback",
+          "width": 811,
+          "height": 658,
+          "fills": [
+            {
+              "hash": "3530cad4d9429fa32ab80c3ac019571a9b216c4b",
+              "scaleMode": "FIT"
+            }
+          ]
+        },
+        {
+          "id": "18:73",
+          "name": "Higgsfield / The Amber Study",
+          "width": 1228,
+          "height": 560,
+          "fills": [
+            {
+              "hash": "3530cad4d9429fa32ab80c3ac019571a9b216c4b",
+              "scaleMode": "FILL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18:177",
+      "name": "Native Mobile · 390",
+      "width": 390,
+      "height": 3574,
+      "sections": [
+        {
+          "id": "18:178",
+          "name": "Header",
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 83
+        },
+        {
+          "id": "18:198",
+          "name": "Hero",
+          "x": 0,
+          "y": 83,
+          "width": 390,
+          "height": 802
+        },
+        {
+          "id": "18:229",
+          "name": "Scent story",
+          "x": 0,
+          "y": 885,
+          "width": 390,
+          "height": 828
+        },
+        {
+          "id": "18:242",
+          "name": "Begin / Pending formula form",
+          "x": 0,
+          "y": 1713,
+          "width": 390,
+          "height": 1105
+        },
+        {
+          "id": "18:286",
+          "name": "Discovery and number reference",
+          "x": 0,
+          "y": 2818,
+          "width": 390,
+          "height": 423
+        },
+        {
+          "id": "18:321",
+          "name": "Footer",
+          "x": 0,
+          "y": 3241,
+          "width": 390,
+          "height": 333
+        }
+      ],
+      "counts": {
+        "nodes": 150,
+        "text": 64,
+        "instances": 4,
+        "vectors": 12,
+        "images": 2,
+        "autoLayout": 46
+      },
+      "fontFamilies": [
+        "Cormorant Garamond",
+        "Noto Sans Thai"
+      ],
+      "shortHorizontalRows": [],
+      "textOverflow": [],
+      "images": [
+        {
+          "id": "18:216",
+          "name": "Higgsfield concept image — static Figma fallback",
+          "width": 390,
+          "height": 350,
+          "fills": [
+            {
+              "hash": "3530cad4d9429fa32ab80c3ac019571a9b216c4b",
+              "scaleMode": "FIT"
+            }
+          ]
+        },
+        {
+          "id": "18:234",
+          "name": "Higgsfield / The Amber Study",
+          "width": 390,
+          "height": 390,
+          "fills": [
+            {
+              "hash": "3530cad4d9429fa32ab80c3ac019571a9b216c4b",
+              "scaleMode": "FILL"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
