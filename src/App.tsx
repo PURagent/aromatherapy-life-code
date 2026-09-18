@@ -13,6 +13,11 @@ import site from './content/site.json'
 
 export type Navigate = (path: string) => void
 export type SessionResult = { input: LifeCodeInput; result: LifeCodeResult }
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+function appPath(pathname: string) {
+  const stripped = basePath && pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname
+  return stripped || '/'
+}
 
 export function LocalLink({ to, navigate, children, className, current }: {
   to: string; navigate: Navigate; children: ReactNode; className?: string; current?: boolean
@@ -22,18 +27,19 @@ export function LocalLink({ to, navigate, children, className, current }: {
     event.preventDefault()
     navigate(to)
   }
-  return <a href={to} onClick={follow} className={className} aria-current={current ? 'page' : undefined}>{children}</a>
+  return <a href={`${basePath}${to}`} onClick={follow} className={className} aria-current={current ? 'page' : undefined}>{children}</a>
 }
 
 function App() {
-  const [route, setRoute] = useState(window.location.pathname)
+  const [route, setRoute] = useState(appPath(window.location.pathname))
   const [draft, setDraft] = useState<FormDraft>(emptyDraft)
   const [session, setSession] = useState<SessionResult | null>(null)
   const [notice, setNotice] = useState('')
   const main = useRef<HTMLElement>(null)
   const hasNavigated = useRef(false)
   const navigate = useCallback((path: string) => {
-    if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== path) window.history.pushState(null, '', path)
+    const fullPath = `${basePath}${path}`
+    if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== fullPath) window.history.pushState(null, '', fullPath)
     hasNavigated.current = true
     setRoute(path.split('#')[0] || '/')
     if (path.includes('#')) {
@@ -49,7 +55,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const onBack = () => { hasNavigated.current = true; setRoute(window.location.pathname) }
+    const onBack = () => { hasNavigated.current = true; setRoute(appPath(window.location.pathname)) }
     window.addEventListener('popstate', onBack)
     return () => window.removeEventListener('popstate', onBack)
   }, [])

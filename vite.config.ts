@@ -54,7 +54,7 @@ function reviewedContentPlugin(allowDraftPreview: boolean): Plugin {
 }
 
 export default defineConfig(({ command, mode }) => ({
-  base: '/',
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/aromatherapy-life-code/' : '/',
   build: { manifest: true },
   plugins: [
     reviewedContentPlugin(command === 'serve' && mode !== 'production'),
