@@ -1,9 +1,11 @@
-export function Icon({ name }: { name: 'arrow' | 'back' | 'lock' | 'download' | 'leaf' | 'check' }) {
+export function Icon({ name }: { name: 'arrow' | 'back' | 'lock' | 'download' | 'leaf' | 'check' | 'bag' | 'plus' | 'minus' | 'close' }) {
   const paths = {
     arrow: 'M5 12h14m-5-5 5 5-5 5', back: 'M19 12H5m5-5-5 5 5 5',
     lock: 'M7 10V7a5 5 0 0 1 10 0v3M6 10h12v11H6zM12 14v3',
     download: 'M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5',
     leaf: 'M5 19c-3-12 8-15 15-15 0 9-4 17-13 13M4 21 15 10', check: 'm5 12 4 4 10-10',
+    bag: 'M6 8h12l1 13H5L6 8Zm3 0V6a3 3 0 0 1 6 0v2',
+    plus: 'M12 5v14M5 12h14', minus: 'M5 12h14', close: 'M6 6l12 12M18 6 6 18',
   }
   return <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>
 }

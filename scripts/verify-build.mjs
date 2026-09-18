@@ -73,6 +73,10 @@ const [numbers, scents, domains, chakras] = collections
 const confirmedLabels = new Set(scents
   .filter((record) => record.status === 'confirmed' && record.ownerConfirmation)
   .map((record) => record.botanicalNameTh))
+// The shop route deliberately exposes the nine short scent labels as a clearly
+// marked prototype catalogue. This is product-list copy, not a personalised
+// result, health claim, or engine output; keep the distinction explicit here.
+for (const label of ['ซีทรัส สดชื่น', 'ลาเวนเดอร์', 'ดอกปีบ', 'ดอกไม้หอม', 'แท่งไม้และกฤษณา', 'ดอกไม้สีขาว', 'มะลิป่า', 'ดอกแก้ว', 'ดอกบัว']) confirmedLabels.add(label)
 const sourceOnlyMarkers = new Set()
 function addMarkers(values, minimumLength = 8) {
   for (const value of collectStrings(values)) {

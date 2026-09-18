@@ -1,77 +1,72 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import type { CSSProperties } from 'react'
 import { LocalLink, type Navigate } from '../App'
 import { AromaWheel, BrandMark, Icon } from '../components/Visuals'
-import { getCataloguePreview, publicContent } from '../lib/content'
+import { shopProducts } from '../content/products'
 import site from '../content/site.json'
 
 type PageProps = { navigate: Navigate }
 
 export function CataloguePage({ navigate }: PageProps) {
   const [query, setQuery] = useState('')
-  const preview = import.meta.env.DEV ? getCataloguePreview() : null
-  const scents = (preview ? preview.scents : publicContent.scents).filter((scent) => scent.kind === 'number')
+  const [cart, setCart] = useState<Record<string, number>>({})
+  const [cartOpen, setCartOpen] = useState(false)
   const search = query.trim().toLocaleLowerCase('th')
-  const visibleScents = scents.filter((scent) => `${scent.botanicalNameTh} ${scent.sku}`.toLocaleLowerCase('th').includes(search))
+  const visibleProducts = shopProducts.filter((product) => `${product.name} ${product.sku} ${product.subtitle}`.toLocaleLowerCase('th').includes(search))
+  const cartItems = useMemo(() => shopProducts.filter((product) => cart[product.sku]), [cart])
+  const cartCount = cartItems.reduce((sum, product) => sum + (cart[product.sku] ?? 0), 0)
+  const cartTotal = cartItems.reduce((sum, product) => sum + product.priceTHB * (cart[product.sku] ?? 0), 0)
+  const formatPrice = (price: number) => `฿${new Intl.NumberFormat('th-TH').format(price)}`
+  function addToCart(sku: string) {
+    setCart((current) => ({ ...current, [sku]: (current[sku] ?? 0) + 1 }))
+    setCartOpen(true)
+  }
+  function updateQuantity(sku: string, delta: number) {
+    setCart((current) => {
+      const next = Math.max(0, (current[sku] ?? 0) + delta)
+      const copy = { ...current }
+      if (next === 0) delete copy[sku]
+      else copy[sku] = next
+      return copy
+    })
+  }
 
   return (
     <section className="catalogue-page">
       <LocalLink to="/" navigate={navigate} className="back-link"><Icon name="back" /> กลับหน้าหลัก</LocalLink>
       <header className="page-heading">
-        <div><h1>โลกของกลิ่น</h1><p>เริ่มจากชื่อที่คุณสนใจ แล้วค่อย ๆ ค้นพบความชอบของตัวเอง</p></div>
+        <div><p className="eyebrow">THE COLLECTION · AROMA ATELIER</p><h1>เลือกกลิ่นที่อยากพากลับบ้าน</h1><p>คอลเลกชันกลิ่น 9 ตัวเลขในขวดขนาดพกพา เลือกทีละกลิ่น หรือจัดชุดของคุณเอง</p></div>
         <AromaWheel compact />
       </header>
 
-      {preview && (
-        <div className="prototype-note" role="note">
-          <span className="status-dot" aria-hidden="true" />
-          <div><strong>{preview.labelTh}</strong><p>รายการนี้เป็นตัวอย่างสำหรับตรวจต้นแบบ ยังไม่ได้คัดเลือกหรือแนะนำให้คุณเป็นการส่วนตัว</p></div>
-        </div>
-      )}
+      <div className="shop-notice" role="note"><span className="status-dot" aria-hidden="true" /><div><strong>ร้านค้าในต้นแบบ</strong><p>ราคาและการชำระเงินเป็นข้อมูลทดลองเพื่อทดสอบประสบการณ์ตะกร้า รอเจ้าของแบรนด์ยืนยันก่อนเปิดขายจริง</p></div></div>
 
-      {scents.length > 0 ? (
-        <>
-          <div className="catalogue-toolbar">
-            <label htmlFor="scent-search">ค้นหาชื่อกลิ่น</label>
-            <input id="scent-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="พิมพ์ชื่อกลิ่นที่สนใจ" maxLength={120} autoComplete="off" />
-            {query && <button className="text-link" type="button" onClick={() => setQuery('')}>ล้างคำค้น</button>}
-            <p role="status" aria-live="polite">{visibleScents.length} รายการ</p>
-          </div>
-          {visibleScents.length > 0 ? (
-            <div className="scent-grid">
-              {visibleScents.map((scent) => (
-                <article className="scent-item" key={scent.sku}>
-                  <div className="scent-symbol" aria-hidden="true"><BrandMark /></div>
-                  <div>
-                  <p className="scent-sku">{scent.sku}</p>
-                  <h2>{scent.botanicalNameTh}</h2>
-                  <p>{preview ? 'ชื่อกลิ่นจากบรีฟ · รอยืนยัน' : 'ชื่อกลิ่นในคอลเลกชัน'}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="inline-empty" role="status">
-              <Icon name="leaf" />
-              <h2>ยังไม่พบชื่อกลิ่นนี้</h2>
-              <p>ลองใช้คำสั้น ๆ หรือกลับไปดูรายการทั้งหมด</p>
-              <button className="button secondary" type="button" onClick={() => setQuery('')}>ดูทุกกลิ่น</button>
-            </div>
-          )}
-        </>
-      ) : (
-        <section className="catalogue-empty">
-          <BrandMark />
-          <h2>คอลเลกชันกำลังเตรียมพร้อม</h2>
-          <p>เรากำลังรอเจ้าของแบรนด์ยืนยันชื่อและรายละเอียดสินค้า เพื่อให้คุณได้อ่านข้อมูลที่ตรวจสอบแล้ว</p>
-          <LocalLink to="/" navigate={navigate} className="button secondary">กลับหน้าหลัก <Icon name="arrow" /></LocalLink>
-        </section>
-      )}
+      <div className="catalogue-toolbar shop-toolbar">
+        <label htmlFor="scent-search">ค้นหาในคอลเลกชัน</label>
+        <input id="scent-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="เช่น ดอกบัว หรือ NO-9" maxLength={120} autoComplete="off" />
+        {query && <button className="text-link" type="button" onClick={() => setQuery('')}>ล้างคำค้น</button>}
+        <p role="status" aria-live="polite">{visibleProducts.length} จาก {shopProducts.length} กลิ่น</p>
+      </div>
 
-      <details className="catalogue-contact">
-        <summary>รายละเอียดการสั่งซื้อ</summary>
-        <p>{site.purchasePending} ต้นแบบนี้จึงยังไม่มีปุ่มสั่งซื้อ</p>
-      </details>
+      {visibleProducts.length > 0 ? <div className="product-grid">
+        {visibleProducts.map((product) => <article className="product-card" key={product.sku} style={{ '--product-accent': product.accent, '--product-glow': product.glow } as CSSProperties}>
+          <div className="product-visual"><img src="/images/celestial-sanctuary.webp" alt="" loading="lazy" /><div className="product-orbit" aria-hidden="true"><span>{product.sku.replace('NO-', '')}</span></div><div className="product-bottle" aria-hidden="true"><i /><b /></div><span className="product-collection">{product.collection}</span></div>
+          <div className="product-card-copy"><div className="product-meta"><span>{product.sku}</span><span>{product.size}</span></div><h2>{product.name}</h2><p>{product.subtitle}</p><div className="product-buy"><strong>{formatPrice(product.priceTHB)}</strong><button className="button product-add" type="button" onClick={() => addToCart(product.sku)}><Icon name="bag" /> เพิ่มลงตะกร้า</button></div><small>ราคาเดโมสำหรับต้นแบบ</small></div>
+        </article>)}
+      </div> : <div className="inline-empty" role="status"><Icon name="leaf" /><h2>ยังไม่พบกลิ่นนี้</h2><p>ลองใช้ชื่อดอกไม้หรือหมายเลขสินค้าอื่น</p><button className="button secondary" type="button" onClick={() => setQuery('')}>ดูทุกกลิ่น</button></div>}
+
+      <div className="shop-footer-note"><BrandMark /><div><h2>สร้างคอลเลกชันของคุณเอง</h2><p>เลือกหลายกลิ่นแล้วปรับจำนวนในตะกร้าได้ทันที ระบบชำระเงินจริงจะเชื่อมต่อหลังเจ้าของแบรนด์ยืนยันช่องทาง</p></div><button className="button primary" type="button" onClick={() => setCartOpen(true)}><Icon name="bag" /> เปิดตะกร้า</button></div>
       <p className="reading-note">{site.disclaimer}</p>
+
+      <button className={`cart-launcher${cartOpen ? ' is-hidden' : ''}`} type="button" onClick={() => setCartOpen(true)} aria-label={`เปิดตะกร้า มี ${cartCount} รายการ`}><Icon name="bag" /><span>{cartCount}</span></button>
+      <button className={`cart-scrim${cartOpen ? ' is-visible' : ''}`} type="button" aria-label="ปิดตะกร้า" onClick={() => setCartOpen(false)} />
+      <aside className={`cart-drawer${cartOpen ? ' is-open' : ''}`} aria-label="ตะกร้าของคุณ" aria-hidden={!cartOpen}>
+        <div className="cart-heading"><div><p className="eyebrow">YOUR COLLECTION</p><h2>ตะกร้าของคุณ</h2></div><button className="icon-button" type="button" aria-label="ปิดตะกร้า" onClick={() => setCartOpen(false)}><Icon name="close" /></button></div>
+        {cartItems.length === 0 ? <div className="cart-empty"><BrandMark /><h3>ตะกร้ายังว่างอยู่</h3><p>เลือกกลิ่นที่สะท้อนช่วงเวลานี้ของคุณ แล้วกลับมาปรับชุดได้ทุกเมื่อ</p></div> : <>
+          <div className="cart-items">{cartItems.map((product) => <div className="cart-item" key={product.sku}><div className="cart-item-swatch" style={{ '--product-accent': product.accent } as CSSProperties}>{product.sku.replace('NO-', '')}</div><div className="cart-item-copy"><strong>{product.name}</strong><span>{formatPrice(product.priceTHB)} · {product.size}</span><div className="quantity-control"><button type="button" aria-label={`ลดจำนวน ${product.name}`} onClick={() => updateQuantity(product.sku, -1)}><Icon name="minus" /></button><span>{cart[product.sku]}</span><button type="button" aria-label={`เพิ่มจำนวน ${product.name}`} onClick={() => updateQuantity(product.sku, 1)}><Icon name="plus" /></button></div></div></div>)}</div>
+          <div className="cart-summary"><span>ยอดรวมต้นแบบ</span><strong>{formatPrice(cartTotal)}</strong></div><button className="button primary cart-checkout" type="button" disabled>ไปต่อที่ชำระเงิน <Icon name="arrow" /></button><p className="cart-note">{site.purchasePending}</p>
+        </>}
+      </aside>
     </section>
   )
 }
