@@ -23,7 +23,7 @@ export function StorySlideshow({ reducedMotion }: { reducedMotion: boolean }) {
 
   useEffect(() => {
     if (!playing) return
-    const timer = window.setInterval(() => setIndex(value => (value + 1) % posters.length), 6000)
+    const timer = window.setInterval(() => setIndex(value => (value + 1) % posters.length), 5000)
     return () => window.clearInterval(timer)
   }, [playing, index])
 
