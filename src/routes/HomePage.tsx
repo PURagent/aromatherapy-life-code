@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import { LocalLink } from '../App'
 import type { Navigate } from '../App'
 import { BrandMark, Icon } from '../components/Visuals'
+import { StorySlideshow } from '../components/StorySlideshow'
 const AmberScene = lazy(() => import('../scene/AmberScene'))
 const moods = [
   { name: 'ม่วงจันทรา', color: '#c29aff' },
@@ -58,7 +59,7 @@ export function HomePage({ children, navigate }: { children: ReactNode; navigate
     </section>
     <section className="scent-story" id="scent-story" aria-labelledby="story-heading" data-reveal>
       <div className="story-heading"><Spark /><h2 id="story-heading">เมื่อความหอม<br />พบกับ<span>จินตนาการ</span></h2><p>ให้ความชอบพาคุณออกเดินทาง<br />ผ่านสีสัน เรื่องราว และโลกของกลิ่น<br />ในแบบของ หมอเน่ mornaenae</p><LocalLink to="/scents" navigate={navigate} className="text-link">ค้นพบโลกของกลิ่น <Icon name="arrow" /></LocalLink></div>
-      <figure className="sanctuary-art"><div className="art-frame"><img src="/images/celestial-sanctuary.webp" width="2200" height="1228" alt="ภาพจินตนาการ ขวดแก้วสีอัญมณีบนแท่นทอง ใต้วงแหวนเรืองแสงในจักรวาลสีม่วง" loading="lazy" decoding="async" /></div><figcaption><span>The Celestial Sanctuary</span><span>ภาพศิลปะแนวคิด · Higgsfield</span></figcaption></figure>
+      <StorySlideshow reducedMotion={reducedMotion} />
     </section>
     <div className="ritual-divider" aria-hidden="true"><i /><Spark /><span>YOUR STORY IS A UNIVERSE</span><Spark /><i /></div>
     {children}
