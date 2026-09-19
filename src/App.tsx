@@ -22,6 +22,16 @@ function appPath(pathname: string) {
   return stripped || '/'
 }
 
+function scrollToFeature(target: HTMLElement, behavior: ScrollBehavior) {
+  const storyHeading = target.id === 'scent-story' ? target.querySelector('.story-heading') : null
+  if (storyHeading) {
+    window.scrollTo({ top: window.scrollY + storyHeading.getBoundingClientRect().top - 10, behavior })
+  } else {
+    target.scrollIntoView({ behavior, block: 'start' })
+  }
+  target.focus({ preventScroll: true })
+}
+
 export function LocalLink({ to, navigate, children, className, current }: {
   to: string; navigate: Navigate; children: ReactNode; className?: string; current?: boolean
 }) {
@@ -54,8 +64,7 @@ function App() {
     if (path.includes('#')) {
       requestAnimationFrame(() => {
         const target = document.getElementById(path.split('#')[1])
-        target?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })
-        target?.focus({ preventScroll: true })
+        if (target) scrollToFeature(target, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth')
       })
       return
     }
@@ -78,7 +87,7 @@ function App() {
     const scroll = () => {
       if (cancelled) return
       const target = hash && document.getElementById(hash)
-      if (target) { target.scrollIntoView({ block: 'start', behavior: 'instant' }); target.focus({ preventScroll: true }) }
+      if (target) scrollToFeature(target, 'instant')
       else window.scrollTo({ top: 0, behavior: 'instant' })
     }
     const frame = requestAnimationFrame(scroll)
