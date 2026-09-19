@@ -1,6 +1,6 @@
 # Cloudflare Pages deployment
 
-Status: prepared; account sign-in and project creation are pending. The requested name has not been reserved.
+Status: deployed successfully on 2026-09-20 through Cloudflare Pages Git integration. Homepage, all four poster images, catalogue, cart opening, and direct `/scents` navigation verified on the live site.
 
 - Plan: Free
 - Project name: `mornaenae-lifecode`
