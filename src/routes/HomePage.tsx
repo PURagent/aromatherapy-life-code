@@ -58,7 +58,7 @@ export function HomePage({ children, navigate }: { children: ReactNode; navigate
       <div className="hero-bottom"><span>ART · AROMA · IMAGINATION</span><a href="#scent-story">เดินทางต่อ <Icon name="arrow" /></a><span>BY MORNAENAE</span></div>
     </section>
     <section className="scent-story" id="scent-story" aria-labelledby="story-heading" data-reveal>
-      <div className="story-heading"><Spark /><h2 id="story-heading">เมื่อความหอม<br />พบกับ<span>จินตนาการ</span></h2><p>ให้ความชอบพาคุณออกเดินทาง<br />ผ่านสีสัน เรื่องราว และโลกของกลิ่น<br />ในแบบของ หมอเน่ mornaenae</p><LocalLink to="/scents" navigate={navigate} className="text-link">ค้นพบโลกของกลิ่น <Icon name="arrow" /></LocalLink></div>
+      <div className="story-heading"><Spark /><h2 id="story-heading">หนึ่งตัวเลข<br />หลายเรื่องราว<span>ความหอมในแบบคุณ</span></h2><p>เปิดโลกของตัวเลขผ่านเสน่ห์แห่งกลิ่น<br />ทำความรู้จักคอลเลกชันของ หมอเน่ mornaenae<br />แล้วเลือกกลิ่นที่อยากให้เป็นส่วนหนึ่งของวัน</p><LocalLink to="/scents" navigate={navigate} className="text-link">เปิดโลกความหอมทั้ง 9 <Icon name="arrow" /></LocalLink></div>
       <StorySlideshow reducedMotion={reducedMotion} />
     </section>
     <div className="ritual-divider" aria-hidden="true"><i /><Spark /><span>YOUR STORY IS A UNIVERSE</span><Spark /><i /></div>
