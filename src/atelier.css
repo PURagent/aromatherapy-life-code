@@ -118,6 +118,7 @@ input, select { background: #100b18; border-color: #75637d; color: #f1e5fb; bord
 }
 @media (max-width: 420px) { .catalogue-page { padding-inline: 18px; }.page-heading .aroma-wheel { display: none; }.product-card { display: block; }.product-visual { min-height: 240px; }.product-buy { align-items: center; flex-direction: row; }.product-add { width: auto; }.cart-drawer { padding-inline: 20px; } }
 
+@media (min-width: 761px) { .story-heading { align-self: start; } }
 .story-slideshow { margin: 0 auto; min-width: 0; width: 100%; max-width: 480px; }
 .story-slideshow__stage { position: relative; aspect-ratio: 3 / 5; overflow: hidden; border: 1px solid #b5904e60; border-radius: 14px; background: radial-gradient(ellipse at center, #302039, #100b19 75%); box-shadow: 0 24px 70px #0003; }
 .story-slideshow__stage { isolation: isolate; }
