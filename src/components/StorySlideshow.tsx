@@ -37,7 +37,7 @@ export function StorySlideshow({ reducedMotion }: { reducedMotion: boolean }) {
     onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
     <div className="story-slideshow__stage" aria-live={playing ? 'off' : 'polite'}>
       {posters.map((alt, position) => <div key={alt} className="story-slideshow__slide" data-active={index === position} aria-hidden={index !== position} role="group" aria-roledescription="สไลด์" aria-label={`${position + 1} จาก ${posters.length}`}>
-        <img src={`${import.meta.env.BASE_URL}images/story/poster-${position + 1}.png`} alt={alt} decoding="async" onLoad={() => setLoaded(previous => new Set(previous).add(position))} />
+        <img src={`${import.meta.env.BASE_URL}images/story/poster-padded-${position + 1}.svg`} width="1200" height="2000" alt={alt} decoding="async" onLoad={() => setLoaded(previous => new Set(previous).add(position))} />
       </div>)}
     </div>
     <div className="story-slideshow__controls">
