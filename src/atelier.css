@@ -120,7 +120,8 @@ input, select { background: #100b18; border-color: #75637d; color: #f1e5fb; bord
 
 .story-slideshow { margin: 0 auto; min-width: 0; width: 100%; max-width: 480px; }
 .story-slideshow__stage { position: relative; aspect-ratio: 3 / 5; overflow: hidden; border: 1px solid #b5904e60; border-radius: 14px; background: radial-gradient(ellipse at center, #302039, #100b19 75%); box-shadow: 0 24px 70px #0003; }
-.story-slideshow__slide { position: absolute; inset: 0; padding: 2.5%; opacity: 0; transition: opacity 850ms ease; pointer-events: none; }
+.story-slideshow__stage { isolation: isolate; }
+.story-slideshow__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1600ms ease-in-out; pointer-events: none; mix-blend-mode: plus-lighter; }
 .story-slideshow__slide[data-active='true'] { opacity: 1; }
 .story-slideshow__slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .story-slideshow__controls { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 15px; }

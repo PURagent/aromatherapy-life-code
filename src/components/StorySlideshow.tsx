@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
 const posters = [
-  'Aromatherapy Life Code — วงแหวนสีรุ้งและขวดกลิ่นหอมสามขวด',
-  'หมอเน่ mornaenae — เรื่องราวของกลิ่นหอมทั้งเก้า',
-  'คอลเลกชันกลิ่นหอมและแนวคิด Aromatherapy Life Code',
-  'จักรวาลแห่งกลิ่น — แสงสีและเครื่องกระจายกลิ่น',
+  'ขวดแก้วสามขวดใต้จักรวาลสีม่วงจันทรา',
+  'ขวดแก้วสามขวดใต้จักรวาลสีครามดารา',
+  'ขวดแก้วสามขวดใต้จักรวาลสีทองอรุณ',
+  'ขวดแก้วสามขวดใต้จักรวาลสีกุหลาบราตรี',
 ]
 
 export function StorySlideshow({ reducedMotion }: { reducedMotion: boolean }) {
@@ -13,7 +13,8 @@ export function StorySlideshow({ reducedMotion }: { reducedMotion: boolean }) {
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
   const [hidden, setHidden] = useState(document.hidden)
-  const playing = !paused && !hovered && !focused && !hidden && !reducedMotion
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set())
+  const playing = loaded.size === posters.length && !paused && !hovered && !focused && !hidden && !reducedMotion
 
   useEffect(() => {
     const update = () => setHidden(document.hidden)
@@ -36,7 +37,7 @@ export function StorySlideshow({ reducedMotion }: { reducedMotion: boolean }) {
     onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
     <div className="story-slideshow__stage" aria-live={playing ? 'off' : 'polite'}>
       {posters.map((alt, position) => <div key={alt} className="story-slideshow__slide" data-active={index === position} aria-hidden={index !== position} role="group" aria-roledescription="สไลด์" aria-label={`${position + 1} จาก ${posters.length}`}>
-        <img src={`${import.meta.env.BASE_URL}images/story/poster-${position + 1}.png`} alt={alt} decoding="async" />
+        <img src={`${import.meta.env.BASE_URL}images/story/celestial-${position + 1}.png`} alt={alt} decoding="async" onLoad={() => setLoaded(previous => new Set(previous).add(position))} />
       </div>)}
     </div>
     <div className="story-slideshow__controls">
