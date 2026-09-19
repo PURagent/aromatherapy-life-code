@@ -33,7 +33,7 @@ export function CataloguePage({ navigate }: PageProps) {
 
       {visibleProducts.length > 0 ? <div className="product-grid">
         {visibleProducts.map((product) => <article className="product-card" key={product.sku} style={{ '--product-accent': product.accent, '--product-glow': product.glow } as CSSProperties}>
-          <div className="product-visual"><img src="/images/celestial-sanctuary.webp" alt="" loading="lazy" /><div className="product-orbit" aria-hidden="true"><span>{product.sku.replace('NO-', '')}</span></div><div className="product-bottle" aria-hidden="true"><i /><b /></div><span className="product-collection">{product.collection}</span></div>
+          <div className="product-visual"><img src={`${import.meta.env.BASE_URL}images/celestial-sanctuary.webp`} alt="" loading="lazy" /><div className="product-orbit" aria-hidden="true"><span>{product.sku.replace('NO-', '')}</span></div><div className="product-bottle" aria-hidden="true"><i /><b /></div><span className="product-collection">{product.collection}</span></div>
           <div className="product-card-copy"><div className="product-meta"><span>{product.sku}</span><span>{product.size}</span></div><h2>{product.name}</h2><p>{product.subtitle}</p><div className="product-buy"><strong>รอยืนยันราคา</strong><button className="button product-add" type="button" onClick={() => addItem(product.sku)}><Icon name="bag" /> เพิ่มในตะกร้า</button></div><small>ภาพขวดจำลองเพื่อเสนอแนวทางการออกแบบ</small></div>
         </article>)}
       </div> : <div className="inline-empty" role="status"><Icon name="leaf" /><h2>ยังไม่พบกลิ่นนี้</h2><p>ลองใช้ชื่อดอกไม้หรือหมายเลขสินค้าอื่น</p><button className="button secondary" type="button" onClick={() => setQuery('')}>ดูทุกกลิ่น</button></div>}

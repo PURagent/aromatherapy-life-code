@@ -143,3 +143,12 @@ input, select { background: #100b18; border-color: #75637d; color: #f1e5fb; bord
   .story-slideshow__dots button { min-width: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .story-slideshow__slide { transition: none; } }
+.feature-menu-toggle { color: #e5c994; border: 1px solid #957944; border-radius: 4px; background: transparent; min-height: 44px; padding: 0 14px; font: inherit; cursor: pointer; }
+.site-header nav.feature-menu { position: absolute; top: calc(100% + 8px); right: 20px; width: min(310px, calc(100vw - 44px)); display: grid; gap: 0; padding: 12px 20px; background: #191121; border: 1px solid #957944; border-radius: 8px; box-shadow: 0 16px 45px #0007; }
+.site-header nav.feature-menu a { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; border-bottom: 1px solid #bc965d26; }
+.site-header nav.feature-menu a:last-child { border-bottom: 0; }
+@media (max-width: 760px) {
+  .site-header { flex-wrap: wrap; height: auto; min-height: 78px; padding-block: 14px; gap: 14px; }
+  .site-header > nav:not(.feature-menu) { width: 100%; justify-content: space-between; gap: 10px; }
+  .site-header .feature-menu-toggle { font-size: 12px; }
+}

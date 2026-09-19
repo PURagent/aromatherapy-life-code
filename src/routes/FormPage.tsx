@@ -217,7 +217,7 @@ export function FormPage({ draft, setDraft, onSubmit, onReset, notice, navigate 
         </div>
         <LocalLink className="text-link" to="/scents" navigate={navigate}>สำรวจกลิ่นทั้งหมด <Icon name="arrow" /></LocalLink>
       </section>
-      <section className="number-index" aria-labelledby="numbers-heading">
+      <section id="numbers" tabIndex={-1} className="number-index" aria-labelledby="numbers-heading">
         <h2 id="numbers-heading">เรื่องราวของตัวเลข</h2>
         <p>ความหมายและการจับคู่กลิ่นจะปรากฏเมื่อเจ้าของแบรนด์ยืนยันแล้ว</p>
         <div>

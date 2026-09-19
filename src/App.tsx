@@ -12,6 +12,7 @@ import { Icon, BrandMark } from './components/Visuals'
 import site from './content/site.json'
 import { useShop } from './shop/useShop'
 import { ShopDrawer } from './shop/ShopDrawer'
+import { featureLinks, featureRoute } from './feature-links'
 
 export type Navigate = (path: string) => void
 export type SessionResult = { input: LifeCodeInput; result: LifeCodeResult }
@@ -33,8 +34,10 @@ export function LocalLink({ to, navigate, children, className, current }: {
 }
 
 function App() {
-  const { count, openCart } = useShop()
-  const [route, setRoute] = useState(appPath(window.location.pathname))
+  const { count, openCart, closeCart } = useShop()
+  const [location, setLocation] = useState(() => appPath(window.location.pathname) + window.location.hash)
+  const route = featureRoute(location)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [draft, setDraft] = useState<FormDraft>(emptyDraft)
   const [session, setSession] = useState<SessionResult | null>(null)
   const [notice, setNotice] = useState('')
@@ -44,7 +47,10 @@ function App() {
     const fullPath = `${basePath}${path}`
     if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== fullPath) window.history.pushState(null, '', fullPath)
     hasNavigated.current = true
-    setRoute(path.split('#')[0] || '/')
+    setMenuOpen(false)
+    closeCart()
+    setLocation(path)
+    if (path === '/#cart') openCart()
     if (path.includes('#')) {
       requestAnimationFrame(() => {
         const target = document.getElementById(path.split('#')[1])
@@ -55,13 +61,30 @@ function App() {
     }
     window.scrollTo({ top: 0, behavior: 'instant' })
     main.current?.focus({ preventScroll: true })
+  }, [openCart, closeCart])
+
+  useEffect(() => {
+    const onBack = () => { hasNavigated.current = true; setMenuOpen(false); setLocation(appPath(window.location.pathname) + window.location.hash) }
+    window.addEventListener('popstate', onBack)
+    window.addEventListener('hashchange', onBack)
+    return () => { window.removeEventListener('popstate', onBack); window.removeEventListener('hashchange', onBack) }
   }, [])
 
   useEffect(() => {
-    const onBack = () => { hasNavigated.current = true; setRoute(appPath(window.location.pathname)) }
-    window.addEventListener('popstate', onBack)
-    return () => window.removeEventListener('popstate', onBack)
-  }, [])
+    if (location === '/#cart') openCart()
+    else closeCart()
+    const hash = location.split('#')[1]
+    let cancelled = false
+    const scroll = () => {
+      if (cancelled) return
+      const target = hash && document.getElementById(hash)
+      if (target) { target.scrollIntoView({ block: 'start', behavior: 'instant' }); target.focus({ preventScroll: true }) }
+      else window.scrollTo({ top: 0, behavior: 'instant' })
+    }
+    const frame = requestAnimationFrame(scroll)
+    void document.fonts.ready.then(scroll)
+    return () => { cancelled = true; cancelAnimationFrame(frame) }
+  }, [location, openCart, closeCart])
 
   useEffect(() => {
     const title = route === '/result' ? 'สถานะรหัสของคุณ' : route === '/scents' ? 'โลกของกลิ่น' : route === '/privacy' ? 'ความเป็นส่วนตัว' : 'Life Code — The Celestial Sanctuary'
@@ -86,7 +109,8 @@ function App() {
       <a className="skip-link" href="#main">ข้ามไปเนื้อหา</a>
       <header className="site-header">
         <LocalLink to="/" navigate={navigate} className="brand"><BrandMark /><span>Life Code<small>by {site.practitioner}</small></span></LocalLink>
-        <nav aria-label="เมนูหลัก"><LocalLink to="/#scent-story" navigate={navigate} className="nav-world">The universe of scent</LocalLink><LocalLink to="/scents" navigate={navigate} current={route === '/scents'}>สำรวจกลิ่น</LocalLink><LocalLink to="/#begin" navigate={navigate} className="nav-start">เริ่มต้น <Icon name="arrow" /></LocalLink><button type="button" className="nav-cart" onClick={openCart} aria-label={`เปิดตะกร้า มี ${count} รายการ`}><Icon name="bag" /><span>{count}</span></button></nav>
+        <nav aria-label="เมนูหลัก"><LocalLink to="/#scent-story" navigate={navigate} className="nav-world">โลกของกลิ่น</LocalLink><LocalLink to="/#collection" navigate={navigate} current={route === '/scents'}>สินค้า</LocalLink><LocalLink to="/#begin" navigate={navigate} className="nav-start">สำรวจรหัส <Icon name="arrow" /></LocalLink><button type="button" className="feature-menu-toggle" aria-expanded={menuOpen} aria-controls="feature-menu" onClick={() => setMenuOpen(value => !value)}>เมนู</button><button type="button" className="nav-cart" onClick={() => navigate('/#cart')} aria-label={`เปิดตะกร้า มี ${count} รายการ`}><Icon name="bag" /><span>{count}</span></button></nav>
+        {menuOpen && <nav className="feature-menu" id="feature-menu" aria-label="ฟีเจอร์ทั้งหมด" onKeyDown={event => { if (event.key === 'Escape') { setMenuOpen(false); document.querySelector<HTMLButtonElement>('.feature-menu-toggle')?.focus() } }}>{featureLinks.map(link => <LocalLink key={link.path} to={link.path} navigate={navigate}>{link.label}<span aria-hidden="true">↗</span></LocalLink>)}</nav>}
       </header>
       <main id="main" ref={main} tabIndex={-1}>
         {route === '/' ? <HomePage navigate={navigate}><FormPage draft={draft} setDraft={setDraft} onSubmit={submit} onReset={reset} notice={notice} navigate={navigate} /></HomePage>
