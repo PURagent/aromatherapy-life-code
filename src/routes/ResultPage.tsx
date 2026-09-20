@@ -3,6 +3,7 @@ import { LocalLink } from '../App'
 import type { Navigate, SessionResult } from '../App'
 import { BrandMark, Icon } from '../components/Visuals'
 import { months } from '../components/form-state'
+import { lineOaMessageUrl } from '../components/line-oa'
 
 export function ResultPage({ session, navigate, onReset }: { session: SessionResult | null; navigate: Navigate; onReset: () => void }) {
   const [saving, setSaving] = useState(false)
@@ -20,6 +21,8 @@ export function ResultPage({ session, navigate, onReset }: { session: SessionRes
     <div className="result-heading"><BrandMark /><h1>ขอบคุณค่ะ คุณ<span className="user-name">{input.name}</span></h1><p>ข้อมูลของคุณพร้อมสำหรับขั้นตอนถัดไปแล้ว</p></div>
     <div className="pending-result" role="status"><span className="pending-seal" aria-hidden="true"><Icon name="leaf" /></span><h2>รอยืนยันสูตร</h2><p>{result.message}</p><p className="no-result-note">ยังไม่มีการคำนวณตัวเลขหรือแนะนำกลิ่นประจำตัว</p></div>
     <dl className="input-summary"><div><dt>วันที่คุณเลือก</dt><dd>{input.birthDate.day} {months[input.birthDate.month - 1]} {input.birthDate.year + 543}<small>ค.ศ. {input.birthDate.year}</small></dd></div><div><dt>เวลาเกิด</dt><dd>{input.birthTime ? `${String(input.birthTime.hour).padStart(2, '0')}:${String(input.birthTime.minute).padStart(2, '0')} น.` : 'ไม่ได้ระบุ'}</dd></div></dl>
+    <a className="button primary line-cta" href={lineOaMessageUrl(input)} target="_blank" rel="noopener noreferrer"><Icon name="chat" /> ส่งข้อมูลให้หมอเน่ทาง LINE</a>
+    <p className="field-hint share-note">เปิดห้องแชท Hormhormshop พร้อมข้อความชื่อและวันเกิดของคุณ กด "ส่ง" อีกครั้งเพื่อให้หมอเน่ได้รับ</p>
     <div className="result-actions"><LocalLink to="/scents" navigate={navigate} className="button primary">สำรวจโลกของกลิ่น <Icon name="arrow" /></LocalLink><button type="button" className="button secondary" onClick={save} disabled={saving}><Icon name="download" />{saving ? 'กำลังบันทึกภาพ…' : 'บันทึกภาพสถานะ'}</button></div>
     <p className="field-hint share-note">ภาพสถานะจะระบุว่ารอยืนยันสูตร และไม่มีข้อมูลส่วนตัว</p><p className="live-notice" role="status">{message}</p><button type="button" className="reset-button" onClick={onReset}>ล้างข้อมูลและเริ่มใหม่</button>
   </section>

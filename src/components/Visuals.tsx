@@ -1,4 +1,4 @@
-export function Icon({ name }: { name: 'arrow' | 'back' | 'lock' | 'download' | 'leaf' | 'check' | 'bag' | 'plus' | 'minus' | 'close' }) {
+export function Icon({ name }: { name: 'arrow' | 'back' | 'lock' | 'download' | 'leaf' | 'check' | 'bag' | 'plus' | 'minus' | 'close' | 'chat' }) {
   const paths = {
     arrow: 'M5 12h14m-5-5 5 5-5 5', back: 'M19 12H5m5-5-5 5 5 5',
     lock: 'M7 10V7a5 5 0 0 1 10 0v3M6 10h12v11H6zM12 14v3',
@@ -6,6 +6,7 @@ export function Icon({ name }: { name: 'arrow' | 'back' | 'lock' | 'download' | 
     leaf: 'M5 19c-3-12 8-15 15-15 0 9-4 17-13 13M4 21 15 10', check: 'm5 12 4 4 10-10',
     bag: 'M6 8h12l1 13H5L6 8Zm3 0V6a3 3 0 0 1 6 0v2',
     plus: 'M12 5v14M5 12h14', minus: 'M5 12h14', close: 'M6 6l12 12M18 6 6 18',
+    chat: 'M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2z',
   }
   return <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>
 }

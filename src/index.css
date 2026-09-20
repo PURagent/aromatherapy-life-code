@@ -124,6 +124,7 @@ select { padding-right: 8px; }
 .pending-result .no-result-note { color: var(--color-gold-100); font-size: 13px; }
 .input-summary { display: grid; grid-template-columns: 1fr 1fr; margin: 0; padding: 26px 24px; gap: 24px; font-size: 14px; }
 .input-summary dt { color: var(--color-ink-muted); font-size: 12px; margin-bottom: 5px; }.input-summary dd { margin: 0; }.input-summary small { color: var(--color-ink-muted); display: block; }
+.line-cta { width: 100%; margin-top: 18px; }
 .result-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 .share-note { text-align: center; margin-top: 16px; }
 .empty-page { max-width: 760px; margin: 0 auto; text-align: center; min-height: 58vh; padding: 64px 20px; }

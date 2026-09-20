@@ -33,3 +33,18 @@ describe('Pending result UI', () => {
     expect(markup).not.toContain('1987')
   })
 })
+
+describe('LINE OA hand-off', () => {
+  it('links to the OA chat with the entered name and birth date prefilled', () => {
+    const markup = render('สมชาย')
+    expect(markup).toContain('https://line.me/R/oaMessage/%40493micst/?')
+    expect(markup).toContain(encodeURIComponent('ชื่อ: สมชาย'))
+    expect(markup).toContain(encodeURIComponent('15 มีนาคม 2530'))
+    expect(markup).toContain('ส่งข้อมูลให้หมอเน่ทาง LINE')
+  })
+  it('keeps a hostile name inside the encoded query, never as markup', () => {
+    const markup = render('<img src=x onerror=alert(1)>')
+    expect(markup).not.toContain('<img')
+    expect(markup).toContain(encodeURIComponent('<img src=x onerror=alert(1)>'))
+  })
+})
